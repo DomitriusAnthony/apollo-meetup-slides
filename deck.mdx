@@ -1,11 +1,25 @@
 export { condensed as theme } from 'mdx-deck/themes';
-import CodeImage from './components/CodeImage.js';
+import CodeImage from './CodeImage.js';
 import { Split } from 'mdx-deck/layouts';
 
 # Learning Apollo by building a Todo Application
 ## w/ Domitrius Clark :sunglasses:
 
 ---
+
+
+export default Split;
+
+# Who is Domitrius Clark???
+
+
+* Front-End Engineer @ Red Queen Gaming
+* Video game and esports legend (in my mind)
+* Twitter: https://www.twitter.com/domitriusclark
+* Github: https://www.github.com/DomitriusAnthony
+
+---
+
 
 
 We will be using a todo app build in Apollo to teach the different pieces of Apollo's use in React
@@ -86,7 +100,7 @@ A Query is analogous to a REST API's GET. It asks the server for the data that w
 
 Here we are sending a Query to the todos structure where we want to return the text and id of the todos that we have stored
 
-<CodeImage src="./query.png" width="900px" height="400px" />
+<CodeImage src="/images/query.png" width="900px" height="400px" />
 
 ** Learn more @ https://graphql.org/learn/queries/ **
 
@@ -103,7 +117,7 @@ A Mutation in Graphql is analogous to PUT / POST / DELETE in a REST API. Anytime
 ---
 Here we are letting the mutation know there is going to be a text argument passed in, what it is, and what we want to do with it. (Set it to text on the object)
 
-<CodeImage src="./mutation3.png" width="900px" height="400px" />
+<CodeImage src="/images/mutation3.png" width="900px" height="400px" />
 
 ** Learn more @ https://graphql.org/learn/queries/#mutations **
 
@@ -119,7 +133,7 @@ apollo-link-state allows us to let Apollo Link know that we're going to be searc
 ---
 
 
-<CodeImage src="./client.png" width="800px" height="400px" />
+<CodeImage src="/images/client.png" width="800px" height="400px" />
 
 
 ---
@@ -137,14 +151,14 @@ Since the schema already describes all of the fields, arguments, and result type
 
 A Resolver function signature looks as follows: 
 
-<CodeImage src="resolver-ex.png" height="75%" width="75%" />
+<CodeImage src="/images/resolver-ex.png" height="75%" width="75%" />
 
 
 ---
 
 An example from our Todo app shows us how we'll use a resolver to explain to our mutation how to add a todo.
 
-<CodeImage src="resolver-ex2.png" width="50%" height="50%" />
+<CodeImage src="/images/resolver-ex2.png" width="50%" height="50%" />
 
 
 ---
@@ -215,7 +229,7 @@ The readQuery method is very similar to the [query method on ApolloClient] excep
 ---
 
 
-<CodeImage src="readQuery.png" width="70%" height="" />
+<CodeImage src="/images/readQuery.png" width="70%" height="" />
 
 
 ---
@@ -227,7 +241,7 @@ This method allows you great flexibility around the data in your cache. Whereas 
 
 ---
 
-<CodeImage src="readFragment.png" width="75%" height="" />
+<CodeImage src="/images/readFragment.png" width="75%" height="" />
 
 
 ---
@@ -241,7 +255,7 @@ These methods will allow you to change data in your local cache, but it is impor
 ---
 
 
-<CodeImage src="writeData.png" width="75%" height="" />
+<CodeImage src="/images/writeData.png" width="75%" height="" />
 
 
 ---
@@ -256,14 +270,14 @@ The Query and Mutation components allow you (with a render prop) to pass the dat
 
 # Query 
 --- 
-<CodeImage src="./queryHOC.png" width="40%" height="" />
+<CodeImage src="/images/queryHOC.png" width="40%" height="" />
 
 
 ---
 
 # Mutation 
 --- 
-<CodeImage src="./mutationHOC.png" width="35%" height="" />
+<CodeImage src="/images/mutationHOC.png" width="35%" height="" />
 
 
 ---
@@ -277,9 +291,14 @@ With the Todo app see if you can build out a mutation to be able to edit the tod
 Links for further research
 
 https://www.apollographql.com/docs/
+
 https://www.howtographql.com/
+
 https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm?hl=en-US
+
 https://graphql.org/
+
 https://www.styled-components.com/docs/basics
+
 https://github.com/jxnblk/mdx-deck
 
