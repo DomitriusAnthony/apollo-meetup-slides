@@ -100,7 +100,7 @@ A Query is analogous to a REST API's GET. It asks the server for the data that w
 
 Here we are sending a Query to the todos structure where we want to return the text and id of the todos that we have stored
 
-<CodeImage src="/images/query.png" width="900px" height="400px" />
+<CodeImage src={require('file-loader!./images/query.png')} width="900px" height="400px" />
 
 ** Learn more @ https://graphql.org/learn/queries/ **
 
@@ -117,7 +117,7 @@ A Mutation in Graphql is analogous to PUT / POST / DELETE in a REST API. Anytime
 ---
 Here we are letting the mutation know there is going to be a text argument passed in, what it is, and what we want to do with it. (Set it to text on the object)
 
-<CodeImage src="/images/mutation3.png" width="900px" height="400px" />
+<CodeImage src={require('file-loader!./images/mutation3.png')} width="900px" height="400px" />
 
 ** Learn more @ https://graphql.org/learn/queries/#mutations **
 
@@ -133,7 +133,7 @@ apollo-link-state allows us to let Apollo Link know that we're going to be searc
 ---
 
 
-<CodeImage src="/images/client.png" width="800px" height="400px" />
+<CodeImage src={require('file-loader!./images/client.png')} width="800px" height="400px" />
 
 
 ---
@@ -151,14 +151,14 @@ Since the schema already describes all of the fields, arguments, and result type
 
 A Resolver function signature looks as follows: 
 
-<CodeImage src="/images/resolver-ex.png" height="75%" width="75%" />
+<CodeImage src={require('file-loader!./images/resolver-ex.png')} height="75%" width="75%" />
 
 
 ---
 
 An example from our Todo app shows us how we'll use a resolver to explain to our mutation how to add a todo.
 
-<CodeImage src="/images/resolver-ex2.png" width="50%" height="50%" />
+<CodeImage src={require('file-loader!./images/resolver-ex2.png')} width="50%" height="50%" />
 
 
 ---
@@ -229,7 +229,7 @@ The readQuery method is very similar to the [query method on ApolloClient] excep
 ---
 
 
-<CodeImage src="/images/readQuery.png" width="70%" height="" />
+<CodeImage src={require('file-loader!./images/readQuery.png')} width="70%" height="" />
 
 
 ---
@@ -241,7 +241,7 @@ This method allows you great flexibility around the data in your cache. Whereas 
 
 ---
 
-<CodeImage src="/images/readFragment.png" width="75%" height="" />
+<CodeImage src={require('file-loader!./images/readFragment.png')} width="75%" height="" />
 
 
 ---
@@ -255,7 +255,7 @@ These methods will allow you to change data in your local cache, but it is impor
 ---
 
 
-<CodeImage src="/images/writeData.png" width="75%" height="" />
+<CodeImage src={require('file-loader!./images/writeData.png')} width="75%" height="" />
 
 
 ---
@@ -270,14 +270,14 @@ The Query and Mutation components allow you (with a render prop) to pass the dat
 
 # Query 
 --- 
-<CodeImage src="/images/queryHOC.png" width="40%" height="" />
+<CodeImage src={require('file-loader!./images/queryHOC.png')} width="40%" height="" />
 
 
 ---
 
 # Mutation 
 --- 
-<CodeImage src="/images/mutationHOC.png" width="35%" height="" />
+<CodeImage src={require('file-loader!./images/mutationHOC.png')} width="35%" height="" />
 
 
 ---
