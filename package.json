@@ -1,0 +1,18 @@
+{
+  "name": "apollo-meetup-slides",
+  "version": "1.0.0",
+  "description": "Slides to accompany Apollo-link-state project for the meetup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mdx-deck deck.mdx"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mdx-deck": "^1.8.2"
+  },
+  "dependencies": {
+    "styled-components": "^4.1.3"
+  }
+}

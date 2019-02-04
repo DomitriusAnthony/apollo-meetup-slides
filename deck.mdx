@@ -1,0 +1,285 @@
+export { condensed as theme } from 'mdx-deck/themes';
+import CodeImage from './components/CodeImage.js';
+import { Split } from 'mdx-deck/layouts';
+
+# Learning Apollo by building a Todo Application
+## w/ Domitrius Clark :sunglasses:
+
+---
+
+
+We will be using a todo app build in Apollo to teach the different pieces of Apollo's use in React
+
+
+git clone https://github.com/DomitriusAnthony/apollo-todo
+
+
+
+
+---
+
+![Apollo Image](https://miro.medium.com/max/1400/1*JiTff85gB4lKHtAhykBGKQ.png)
+# What is Apollo and why use it?
+
+
+---
+
+
+### Apollo Client is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches with GraphQL, and can be used with any JS front-end.
+
+---
+
+
+# Apollo allows us
+--- 
+
+## Declarative Data fetching
+* With Apollo’s declarative approach to data fetching, all of the logic for retrieving your data, tracking loading and error states, and updating your UI is encapsulated in a single Query component.
+
+
+---
+
+# Apollo allows us 
+--- 
+## Zero-config caching
+* Just by setting up Apollo Client, you get an intelligent cache out of the box with no additional configuration required.
+
+
+---
+
+# Apollo allows us
+--- 
+## To combine local & remote data
+* Managing all your data with Apollo Client allows you to take advantage of GraphQL as a unified interface to all of your data. This enables you to inspect both your local and remote schemas in Apollo DevTools through GraphiQL.
+
+---
+
+# Apollo provides
+--- 
+## A vibrant ecosystem
+* Apollo Client is easy to get started with, but extensible for when you need to build out more advanced features. 
+
+
+<!-- ---
+export default Split;
+
+Setting up Apollo w/ React :point_right:
+
+<CodeImage src="/images/apolloClient.png" height="900px" width="600px" /> -->
+
+---
+
+
+# GraphQL Query & Mutation
+
+
+---
+
+
+## What is a query? 
+--- 
+A Query is analogous to a REST API's GET. It asks the server for the data that we need. Unlike REST's GET where we get a bunch of data we may not need, the Graphql Query allows us to ask specifically for the data we need.
+
+
+
+---
+
+Here we are sending a Query to the todos structure where we want to return the text and id of the todos that we have stored
+
+<CodeImage src="/images/query.png" width="900px" height="400px" />
+
+** Learn more @ https://graphql.org/learn/queries/ **
+
+
+
+
+---
+
+## What is a mutation?
+--- 
+A Mutation in Graphql is analogous to PUT / POST / DELETE in a REST API. Anytime we need to change data within our data store, we will be using a Mutation. Just like in Queries, if the mutation field returns and object type, you can ask for nested fields. This can be useful for fetching the new state of an object after the update.
+
+
+---
+Here we are letting the mutation know there is going to be a text argument passed in, what it is, and what we want to do with it. (Set it to text on the object)
+
+<CodeImage src="/images/mutation3.png" width="900px" height="400px" />
+
+** Learn more @ https://graphql.org/learn/queries/#mutations **
+
+
+---
+
+
+## apollo-link-state and it's BFF the @client directive
+
+apollo-link-state allows us to let Apollo Link know that we're going to be searching for data in the cache and not an outside data source. All you have to do is add the @client directive to your query / mutation and BOOM you've got cached data.
+
+
+---
+
+
+<CodeImage src="/images/client.png" width="800px" height="400px" />
+
+
+---
+
+# How do we manipulate the cache with mutations??
+
+---
+
+# Resolvers
+
+Since the schema already describes all of the fields, arguments, and result types, the only thing left is a collection of functions that are called to actually execute these fields.
+
+
+---
+
+A Resolver function signature looks as follows: 
+
+<CodeImage src="/images/resolver-ex.png" height="75%" width="75%" />
+
+
+---
+
+An example from our Todo app shows us how we'll use a resolver to explain to our mutation how to add a todo.
+
+<CodeImage src="/images/resolver-ex2.png" width="50%" height="50%" />
+
+
+---
+
+## Lets dive into the arguments of a resolver
+
+
+---
+
+# 1. obj
+--- 
+
+The object that contains the result returned from the resolver on the parent field. This argument enables the nested nature of GraphQL queries.
+
+
+---
+
+
+# 2. args 
+--- 
+ An object with the arguments passed into the field in the query. For example, if the field was called with author(name: "Ada"), the args object would be: { "name": "Ada" }.
+
+
+---
+
+
+# 3. context
+--- 
+This is an object shared by all resolvers in a particular query, and is used to contain per-request state, including authentication information, dataloader instances, and anything else that should be taken into account when resolving the query
+
+
+---
+
+
+# 4. info
+--- 
+This argument should only be used in advanced cases, but it contains information about the execution state of the query, including the field name, path to the field from the root, and more
+
+
+---
+
+## Resolvers in GraphQL can return different kinds of results 
+
+* Null or Undefined - this indicates the object could not be found.
+* An array - this is only valid if the schema indicates that the result of a field should be a list
+* A promise - resolvers often asynchronous actions liek fetching from a database or backend API, so they can return promises
+* A scalar or object value - a resolver can also return any other kind of value, which doesn't have any special meaning but is simply passed down into any nested resolvers
+
+** Learn more @ https://www.apollographql.com/docs/graphql-tools/resolvers.html ** 
+
+---
+
+
+Inside of a resolver we mainly use four methods to manipulate data within the resolver
+
+                                - cache.readQuery() && cache.readFragment()
+
+                                - cache.writeData() && cache.writeFragment()
+
+
+---
+
+## cache.readQuery()
+--- 
+The readQuery method is very similar to the [query method on ApolloClient] except that readQuery will never make a request to your GraphQL server only from your cache.
+
+
+---
+
+
+<CodeImage src="/images/readQuery.png" width="70%" height="" />
+
+
+---
+
+## cache.readFragment()
+--- 
+This method allows you great flexibility around the data in your cache. Whereas readQuery only allowed you to read data from your root query type, readFragment allows you to read data from any node you have queried.
+
+
+---
+
+<CodeImage src="/images/readFragment.png" width="75%" height="" />
+
+
+---
+
+
+## cache.writeData() && cache.writeFragment()
+--- 
+These methods will allow you to change data in your local cache, but it is important to remember that they will not change any data on your server.
+
+
+---
+
+
+<CodeImage src="/images/writeData.png" width="75%" height="" />
+
+
+---
+
+### Query & Mutation HOC 
+
+---
+
+The Query and Mutation components allow you (with a render prop) to pass the data [local or remote] through to your components. 
+
+---
+
+# Query 
+--- 
+<CodeImage src="/images/queryHOC.png" width="40%" height="" />
+
+
+---
+
+# Mutation 
+--- 
+<CodeImage src="/images/mutationHOC.png" width="35%" height="" />
+
+
+---
+
+# Practice makes perfect!
+
+With the Todo app see if you can build out a mutation to be able to edit the todo
+
+---
+
+Links for further research
+
+https://www.apollographql.com/docs/
+https://www.howtographql.com/
+https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm?hl=en-US
+https://graphql.org/
+https://www.styled-components.com/docs/basics
+https://github.com/jxnblk/mdx-deck
+
