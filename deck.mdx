@@ -1,6 +1,7 @@
-export { condensed as theme } from 'mdx-deck/themes';
+export { future as theme } from 'mdx-deck/themes';
 import CodeImage from './CodeImage.js';
 import { Split } from 'mdx-deck/layouts';
+
 
 # Learning Apollo by building a Todo Application
 ## w/ Domitrius Clark :sunglasses:
@@ -15,8 +16,8 @@ export default Split;
 
 * Front-End Engineer @ Red Queen Gaming
 * Video game and esports legend (in my mind)
-* Twitter: https://www.twitter.com/domitriusclark
-* Github: https://www.github.com/DomitriusAnthony
+* [Twitter](https://www.twitter.com/domitriusclark)
+* [Github](https://www.github.com/DomitriusAnthony)
 
 ---
 
@@ -39,7 +40,7 @@ git clone https://github.com/DomitriusAnthony/apollo-todo
 ---
 
 
-### Apollo Client is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches with GraphQL, and can be used with any JS front-end.
+Apollo Client is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches with GraphQL, and can be used with any JS front-end.
 
 ---
 
@@ -48,7 +49,7 @@ git clone https://github.com/DomitriusAnthony/apollo-todo
 --- 
 
 ## Declarative Data fetching
-* With Apollo’s declarative approach to data fetching, all of the logic for retrieving your data, tracking loading and error states, and updating your UI is encapsulated in a single Query component.
+With Apollo’s declarative approach to data fetching, all of the logic for retrieving your data, tracking loading and error states, and updating your UI is encapsulated in a single Query component.
 
 
 ---
@@ -56,7 +57,7 @@ git clone https://github.com/DomitriusAnthony/apollo-todo
 # Apollo allows us 
 --- 
 ## Zero-config caching
-* Just by setting up Apollo Client, you get an intelligent cache out of the box with no additional configuration required.
+Just by setting up Apollo Client, you get an intelligent cache out of the box with no additional configuration required.
 
 
 ---
@@ -64,14 +65,14 @@ git clone https://github.com/DomitriusAnthony/apollo-todo
 # Apollo allows us
 --- 
 ## To combine local & remote data
-* Managing all your data with Apollo Client allows you to take advantage of GraphQL as a unified interface to all of your data. This enables you to inspect both your local and remote schemas in Apollo DevTools through GraphiQL.
+Managing all your data with Apollo Client allows you to take advantage of GraphQL as a unified interface to all of your data. This enables you to inspect both your local and remote schemas in Apollo DevTools through GraphiQL.
 
 ---
 
 # Apollo provides
 --- 
 ## A vibrant ecosystem
-* Apollo Client is easy to get started with, but extensible for when you need to build out more advanced features. 
+Apollo Client is easy to get started with, but extensible for when you need to build out more advanced features. 
 
 
 <!-- ---
@@ -100,7 +101,7 @@ A Query is analogous to a REST API's GET. It asks the server for the data that w
 
 Here we are sending a Query to the todos structure where we want to return the text and id of the todos that we have stored
 
-<CodeImage src={require('file-loader!./images/query.png')} width="900px" height="400px" />
+<CodeImage src={require('file-loader!./images/query.png')} width="50%" />
 
 ** Learn more @ https://graphql.org/learn/queries/ **
 
@@ -117,7 +118,7 @@ A Mutation in Graphql is analogous to PUT / POST / DELETE in a REST API. Anytime
 ---
 Here we are letting the mutation know there is going to be a text argument passed in, what it is, and what we want to do with it. (Set it to text on the object)
 
-<CodeImage src={require('file-loader!./images/mutation3.png')} width="900px" height="400px" />
+<CodeImage src={require('file-loader!./images/mutation3.png')} width="50%" />
 
 ** Learn more @ https://graphql.org/learn/queries/#mutations **
 
@@ -200,23 +201,24 @@ This argument should only be used in advanced cases, but it contains information
 
 ---
 
-## Resolvers in GraphQL can return different kinds of results 
+### Resolvers in GraphQL can return different kinds of results 
 
-* Null or Undefined - this indicates the object could not be found.
-* An array - this is only valid if the schema indicates that the result of a field should be a list
-* A promise - resolvers often asynchronous actions liek fetching from a database or backend API, so they can return promises
-* A scalar or object value - a resolver can also return any other kind of value, which doesn't have any special meaning but is simply passed down into any nested resolvers
+1) Null or Undefined 
 
-** Learn more @ https://www.apollographql.com/docs/graphql-tools/resolvers.html ** 
+2) An array 
+
+3) A promise
+
+4) A scalar or object value
 
 ---
 
 
 Inside of a resolver we mainly use four methods to manipulate data within the resolver
 
-                                - cache.readQuery() && cache.readFragment()
-
-                                - cache.writeData() && cache.writeFragment()
+            - cache.readQuery() && cache.readFragment()
+                        
+            - cache.writeData() && cache.writeFragment()
 
 
 ---
@@ -270,7 +272,7 @@ The Query and Mutation components allow you (with a render prop) to pass the dat
 
 # Query 
 --- 
-<CodeImage src={require('file-loader!./images/queryHOC.png')} width="40%" height="" />
+<CodeImage src={require('file-loader!./images/queryHOC.png')} width="35%" height="" />
 
 
 ---
